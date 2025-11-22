@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse our complete collection of premium roses and flower bouquets. Filter by occasion, color, and price range.">
+    <title>Shop All Products - Petals & Blooms | Rose & Flower Bouquets</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: var(--spacing-2xl);
+            align-items: start;
+        }
+
+        .filters-sidebar {
+            position: sticky;
+            top: 90px;
+            background: var(--color-surface);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        .filter-group {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .filter-group h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-primary);
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            cursor: pointer;
+        }
+
+        .filter-option input[type="radio"],
+        .filter-option input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .filter-option label {
+            cursor: pointer;
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .price-inputs {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .price-inputs input {
+            width: 80px;
+            padding: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .products-count {
+            color: var(--color-text-secondary);
+        }
+
+        .persona-selector {
+            background: var(--color-surface-elevated);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .persona-selector h4 {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .persona-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .persona-btn-filter {
+            flex: 1;
+            padding: var(--spacing-sm);
+            border: 2px solid var(--color-border);
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .persona-btn-filter:hover {
+            border-color: var(--color-primary);
+            background: var(--color-accent);
+        }
+
+        .persona-btn-filter.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .mobile-filters-toggle {
+            display: none;
+            width: 100%;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        @media (max-width: 968px) {
+            .shop-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-sidebar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 320px;
+                height: 100vh;
+                z-index: 9999;
+                transition: left var(--transition-base);
+                overflow-y: auto;
+            }
+
+            .filters-sidebar.active {
+                left: 0;
+            }
+
+            .mobile-filters-toggle {
+                display: block;
+            }
+
+            .filter-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .filter-close {
+                background: none;
+                border: none;
+                font-size: var(--font-size-2xl);
+                cursor: pointer;
+                color: var(--color-text-primary);
+            }
+        }
+
+        .no-products {
+            text-align: center;
+            padding: var(--spacing-3xl);
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌹</span>
+                <span>Petals & Blooms</span>
+            </a>
+
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+                <button id="cart-toggle" class="icon-btn" aria-label="View shopping cart">
+                    🛒
+                    <span class="badge cart-badge">0</span>
+                </button>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shop Header -->
+    <section
+        style="background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-background) 100%); padding: var(--spacing-2xl) 0;">
+        <div class="container">
+            <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-sm);">Shop All Bouquets</h1>
+            <p style="color: var(--color-text-secondary); font-size: var(--font-size-lg);">Discover our complete
+                collection of premium roses and flowers</p>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section style="padding: var(--spacing-3xl) 0;">
+        <div class="container">
+            <button class="btn btn-primary mobile-filters-toggle"
+                onclick="document.getElementById('filters').classList.add('active')">
+                🔍 Filters
+            </button>
+
+            <div class="shop-layout">
+                <!-- Filters Sidebar -->
+                <aside id="filters" class="filters-sidebar" role="complementary" aria-label="Product filters">
+                    <div class="filter-header">
+                        <h2 style="margin: 0;">Filters</h2>
+                        <button class="filter-close"
+                            onclick="document.getElementById('filters').classList.remove('active')"
+                            aria-label="Close filters">✕</button>
+                    </div>
+
+                    <!-- Persona Selector -->
+                    <div class="persona-selector">
+                        <h4>Image Preference:</h4>
+                        <div class="persona-buttons">
+                            <button class="persona-btn-filter active" data-persona="default">Default</button>
+                            <button class="persona-btn-filter" data-persona="man">Man</button>
+                            <button class="persona-btn-filter" data-persona="woman">Woman</button>
+                        </div>
+                    </div>
+
+                    <!-- Occasion Filter -->
+                    <div class="filter-group">
+                        <h3>Occasion</h3>
+                        <div class="filter-option">
+                            <input type="radio" id="occasion-all" name="occasion" value="all" checked>
+                            <label for="occasion-all">All Occasions</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="occasion-romantic" name="occasion" value="romantic">
+                            <label for="occasion-romantic">Romantic</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="occasion-wedding" name="occasion" value="wedding">
+                            <label for="occasion-wedding">Wedding</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="occasion-birthday" name="occasion" value="birthday">
+                            <label for="occasion-birthday">Birthday</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="occasion-gratitude" name="occasion" value="gratitude">
+                            <label for="occasion-gratitude">Gratitude</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="occasion-sympathy" name="occasion" value="sympathy">
+                            <label for="occasion-sympathy">Sympathy</label>
+                        </div>
+                    </div>
+
+                    <!-- Color Filter -->
+                    <div class="filter-group">
+                        <h3>Color</h3>
+                        <div class="filter-option">
+                            <input type="radio" id="color-all" name="color" value="all" checked>
+                            <label for="color-all">All Colors</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="color-red" name="color" value="red">
+                            <label for="color-red">🔴 Red</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="color-white" name="color" value="white">
+                            <label for="color-white">⚪ White</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="color-pink" name="color" value="pink">
+                            <label for="color-pink">🩷 Pink</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="color-yellow" name="color" value="yellow">
+                            <label for="color-yellow">🟡 Yellow</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="color-purple" name="color" value="purple">
+                            <label for="color-purple">🟣 Purple</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="color-mixed" name="color" value="mixed">
+                            <label for="color-mixed">🌈 Mixed</label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <div class="price-inputs">
+                            <input type="number" id="min-price" class="form-input" placeholder="Min" min="0" step="1">
+                            <span>-</span>
+                            <input type="number" id="max-price" class="form-input" placeholder="Max" min="0" step="1">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary" style="width: 100%;" onclick="resetFilters()">
+                        Reset Filters
+                    </button>
+                </aside>
+
+                <!-- Products Grid -->
+                <main>
+                    <div class="products-header">
+                        <div>
+                            <h2 style="margin: 0;">All Products</h2>
+                            <p class="products-count" id="products-count">Loading...</p>
+                        </div>
+                    </div>
+
+                    <div id="products-grid" class="grid grid-3">
+                        <!-- Products will be loaded dynamically -->
+                        <div style="grid-column: 1/-1; text-align: center; padding: var(--spacing-3xl);">
+                            <div style="font-size: 3rem; margin-bottom: var(--spacing-md);">🌹</div>
+                            <p>Loading products...</p>
+                        </div>
+                    </div>
+
+                    <div id="no-products" class="no-products" style="display: none;">
+                        <div style="font-size: 3rem; margin-bottom: var(--spacing-md);">😔</div>
+                        <h3>No products found</h3>
+                        <p>Try adjusting your filters to see more results</p>
+                        <button class="btn btn-primary mt-2" onclick="resetFilters()">Reset Filters</button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Petals & Blooms</h3>
+                    <p style="color: var(--color-text-secondary);">Delivering joy, one bouquet at a time.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping & Delivery</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>📧 hello@petalsblooms.com</li>
+                        <li>📞 +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="payment-badges">
+                <span class="payment-badge">💳 Visa</span>
+                <span class="payment-badge">💳 Mastercard</span>
+                <span class="payment-badge">💰 PayPal</span>
+                <span class="payment-badge">💵 Stripe</span>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Petals & Blooms. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-overlay" class="modal-overlay">
+        <aside id="cart-sidebar" class="modal" role="dialog" aria-labelledby="cart-title" aria-modal="true"
+            style="max-width: 450px; margin-left: auto;">
+            <div class="modal-header">
+                <h2 id="cart-title">Shopping Cart</h2>
+                <button id="cart-close" class="modal-close" aria-label="Close cart">✕</button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart items will be loaded dynamically -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let currentFilters = {
+            occasion: 'all',
+            color: 'all',
+            minPrice: undefined,
+            maxPrice: undefined
+        };
+
+        // Load and filter products
+        async function loadAndFilterProducts() {
+            const productsGrid = document.getElementById('products-grid');
+            const noProductsEl = document.getElementById('no-products');
+            const countEl = document.getElementById('products-count');
+
+            await productLoader.loadProducts();
+
+            const filtered = productLoader.filterProducts(currentFilters);
+
+            if (filtered.length === 0) {
+                productsGrid.style.display = 'none';
+                noProductsEl.style.display = 'block';
+                countEl.textContent = '0 products';
+            } else {
+                productsGrid.style.display = 'grid';
+                noProductsEl.style.display = 'none';
+                countEl.textContent = `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+
+                productsGrid.innerHTML = filtered.map(product =>
+                    productLoader.renderProductCard(product)
+                ).join('');
+
+                // Trigger scroll animations
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    setTimeout(() => el.classList.add('visible'), 50);
+                });
+            }
+        }
+
+        // Reset filters
+        function resetFilters() {
+            currentFilters = {
+                occasion: 'all',
+                color: 'all',
+                minPrice: undefined,
+                maxPrice: undefined
+            };
+
+            document.getElementById('occasion-all').checked = true;
+            document.getElementById('color-all').checked = true;
+            document.getElementById('min-price').value = '';
+            document.getElementById('max-price').value = '';
+
+            loadAndFilterProducts();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('occasion')) {
+                const occasion = urlParams.get('occasion');
+                const occasionInput = document.getElementById(`occasion-${occasion}`);
+                if (occasionInput) {
+                    occasionInput.checked = true;
+                    currentFilters.occasion = occasion;
+                }
+            }
+
+            // Persona selector
+            document.querySelectorAll('.persona-btn-filter').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const persona = e.target.dataset.persona;
+                    productLoader.setPersona(persona);
+
+                    document.querySelectorAll('.persona-btn-filter').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    loadAndFilterProducts();
+                });
+            });
+
+            // Occasion filter
+            document.querySelectorAll('input[name="occasion"]').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    currentFilters.occasion = e.target.value;
+                    loadAndFilterProducts();
+
+                    // Close mobile filters
+                    document.getElementById('filters').classList.remove('active');
+                });
+            });
+
+            // Color filter
+            document.querySelectorAll('input[name="color"]').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    currentFilters.color = e.target.value;
+                    loadAndFilterProducts();
+
+                    // Close mobile filters
+                    document.getElementById('filters').classList.remove('active');
+                });
+            });
+
+            // Price filter (debounced)
+            const priceFilter = debounce(() => {
+                const minPrice = document.getElementById('min-price').value;
+                const maxPrice = document.getElementById('max-price').value;
+
+                currentFilters.minPrice = minPrice ? parseFloat(minPrice) : undefined;
+                currentFilters.maxPrice = maxPrice ? parseFloat(maxPrice) : undefined;
+
+                loadAndFilterProducts();
+            }, 500);
+
+            document.getElementById('min-price').addEventListener('input', priceFilter);
+            document.getElementById('max-price').addEventListener('input', priceFilter);
+
+            // Listen for persona changes from modal
+            window.addEventListener('personaChanged', () => {
+                loadAndFilterProducts();
+            });
+
+            // Initial load
+            loadAndFilterProducts();
+        });
+    </script>
+</body>
+
+</html>

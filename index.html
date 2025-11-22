@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Premium rose and flower bouquets for every occasion. Hand-picked, expertly arranged, and delivered with love.">
+    <meta name="keywords" content="roses, flowers, bouquets, delivery, wedding, anniversary, romantic gifts">
+    <title>Petals & Blooms - Premium Rose & Flower Shop | Fresh Bouquets Delivered</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart-modal.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌹</span>
+                <span>Petals & Blooms</span>
+            </a>
+
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+                <button id="cart-toggle" class="icon-btn" aria-label="View shopping cart">
+                    🛒
+                    <span class="badge cart-badge">0</span>
+                </button>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Bloom Every Moment with Love</h1>
+                <p class="hero-subtitle">Hand-picked premium roses and bouquets, expertly arranged for life's most
+                    precious occasions.</p>
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+                    <a href="about.html" class="btn btn-secondary btn-lg">Our Story</a>
+                </div>
+            </div>
+            <img src="img/hero-bouquet.jpg" alt="Beautiful rose bouquet" class="hero-image" id="hero-image"
+                onerror="this.style.display='none'">
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Collections</h2>
+                <p class="section-subtitle">Discover our most popular bouquets, carefully curated for every special
+                    moment</p>
+            </div>
+            <div id="featured-grid" class="grid grid-3">
+                <!-- Products will be loaded dynamically -->
+            </div>
+            <div class="text-center mt-3">
+                <a href="shop.html" class="btn btn-outline btn-lg">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Occasion</h2>
+                <p class="section-subtitle">Find the perfect bouquet for every celebration</p>
+            </div>
+            <div class="grid grid-4">
+                <a href="shop.html?occasion=romantic" class="category-card card fade-in">
+                    <div class="card-img-wrapper">
+                        <img src="img/category-romantic.jpg" alt="Romantic occasions" class="card-img"
+                            onerror="this.src='img/placeholder.jpg'">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Romantic</h3>
+                        <p class="card-text">Express your love with timeless red roses</p>
+                    </div>
+                </a>
+
+                <a href="shop.html?occasion=wedding" class="category-card card fade-in">
+                    <div class="card-img-wrapper">
+                        <img src="img/category-wedding.jpg" alt="Wedding occasions" class="card-img"
+                            onerror="this.src='img/placeholder.jpg'">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Weddings</h3>
+                        <p class="card-text">Elegant arrangements for your special day</p>
+                    </div>
+                </a>
+
+                <a href="shop.html?occasion=birthday" class="category-card card fade-in">
+                    <div class="card-img-wrapper">
+                        <img src="img/category-birthday.jpg" alt="Birthday occasions" class="card-img"
+                            onerror="this.src='img/placeholder.jpg'">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Birthdays</h3>
+                        <p class="card-text">Brighten someone's special day</p>
+                    </div>
+                </a>
+
+                <a href="shop.html?occasion=sympathy" class="category-card card fade-in">
+                    <div class="card-img-wrapper">
+                        <img src="img/category-sympathy.jpg" alt="Sympathy occasions" class="card-img"
+                            onerror="this.src='img/placeholder.jpg'">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Sympathy</h3>
+                        <p class="card-text">Express your condolences with grace</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Real stories from real customers</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card fade-in">
+                    <div class="card-body">
+                        <div style="font-size: 2rem; margin-bottom: var(--spacing-md);">⭐⭐⭐⭐⭐</div>
+                        <p class="card-text">"Absolutely stunning roses! They arrived fresh and beautifully arranged. My
+                            wife was thrilled. Will definitely order again!"</p>
+                        <h4 style="color: var(--color-primary); margin-top: var(--spacing-md);">- Michael R.</h4>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <div class="card-body">
+                        <div style="font-size: 2rem; margin-bottom: var(--spacing-md);">⭐⭐⭐⭐⭐</div>
+                        <p class="card-text">"The best flower shop I've ever used. The quality is exceptional, and the
+                            customer service is outstanding. Highly recommended!"</p>
+                        <h4 style="color: var(--color-primary); margin-top: var(--spacing-md);">- Sarah L.</h4>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <div class="card-body">
+                        <div style="font-size: 2rem; margin-bottom: var(--spacing-md);">⭐⭐⭐⭐⭐</div>
+                        <p class="card-text">"Perfect for our anniversary! The bouquet was even more beautiful than the
+                            photos. Thank you for making our day special!"</p>
+                        <h4 style="color: var(--color-primary); margin-top: var(--spacing-md);">- David & Emma</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter"
+        style="background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-background) 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Stay in Bloom</h2>
+                <p class="section-subtitle">Subscribe to our newsletter for exclusive offers, tips, and floral
+                    inspiration</p>
+            </div>
+            <form id="newsletter-form" class="newsletter-form"
+                style="max-width: 500px; margin: 0 auto; display: flex; gap: var(--spacing-md);"
+                onsubmit="event.preventDefault(); const email = this.querySelector('input').value; if(subscribeNewsletter(email)) this.reset();">
+                <input type="email" class="form-input" placeholder="Enter your email" required
+                    aria-label="Email address" style="flex: 1;">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Petals & Blooms</h3>
+                    <p style="color: var(--color-text-secondary);">Delivering joy, one bouquet at a time. Premium roses
+                        and flowers for every occasion.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping & Delivery</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>📧 hello@mounirhsinou.com</li>
+                        <li>📞 +1 (555) 123-4567</li>
+                        <li>📍 123 Flower Street, Garden City</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="payment-badges">
+                <span class="payment-badge">💳 Visa</span>
+                <span class="payment-badge">💳 Mastercard</span>
+                <span class="payment-badge">💰 PayPal</span>
+                <span class="payment-badge">💵 Stripe</span>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Petals & Blooms. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar Overlay -->
+    <div id="cart-overlay" class="modal-overlay">
+        <aside id="cart-sidebar" class="modal" role="dialog" aria-labelledby="cart-title" aria-modal="true"
+            style="max-width: 450px; margin-left: auto;">
+            <div class="modal-header">
+                <h2 id="cart-title">Shopping Cart</h2>
+                <button id="cart-close" class="modal-close" aria-label="Close cart">✕</button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart items will be loaded dynamically -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load featured products
+        document.addEventListener('DOMContentLoaded', async () => {
+            const featuredGrid = document.getElementById('featured-grid');
+
+            if (featuredGrid && window.productLoader) {
+                await productLoader.loadProducts();
+                const featured = productLoader.getFeaturedProducts().slice(0, 6);
+
+                featuredGrid.innerHTML = featured.map(product =>
+                    productLoader.renderProductCard(product)
+                ).join('');
+            }
+        });
+    </script>
+</body>
+
+</html>

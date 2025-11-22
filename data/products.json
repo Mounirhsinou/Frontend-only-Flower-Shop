@@ -1,0 +1,279 @@
+[
+  {
+    "id": "rose-001",
+    "name": "Classic Red Roses - 12",
+    "slug": "classic-red-roses-12",
+    "variants": [
+      {"size": "Small (6 stems)", "price": 29},
+      {"size": "Medium (12 stems)", "price": 45},
+      {"size": "Large (24 stems)", "price": 79}
+    ],
+    "tags": ["romantic", "anniversary", "valentines"],
+    "occasion": "romantic",
+    "color": "red",
+    "images": {
+      "default": ["rose-001-1.jpg", "rose-001-2.jpg", "rose-001-3.jpg"],
+      "persona_man": ["rose-001-man-1.jpg", "rose-001-man-2.jpg"],
+      "persona_woman": ["rose-001-woman-1.jpg", "rose-001-woman-2.jpg"]
+    },
+    "description": "Hand-picked classic red roses, expertly arranged to express your deepest emotions. Perfect for anniversaries, romantic gestures, or Valentine's Day.",
+    "featured": true
+  },
+  {
+    "id": "rose-002",
+    "name": "Elegant White Roses - 18",
+    "slug": "elegant-white-roses-18",
+    "variants": [
+      {"size": "Small (9 stems)", "price": 35},
+      {"size": "Medium (18 stems)", "price": 55},
+      {"size": "Large (36 stems)", "price": 95}
+    ],
+    "tags": ["wedding", "sympathy", "elegant"],
+    "occasion": "wedding",
+    "color": "white",
+    "images": {
+      "default": ["rose-002-1.jpg", "rose-002-2.jpg", "rose-002-3.jpg"],
+      "persona_man": ["rose-002-man-1.jpg", "rose-002-man-2.jpg"],
+      "persona_woman": ["rose-002-woman-1.jpg", "rose-002-woman-2.jpg"]
+    },
+    "description": "Pure white roses symbolizing new beginnings, innocence, and reverence. Ideal for weddings, condolences, or expressing sincere emotions.",
+    "featured": true
+  },
+  {
+    "id": "rose-003",
+    "name": "Sunshine Yellow Roses - 15",
+    "slug": "sunshine-yellow-roses-15",
+    "variants": [
+      {"size": "Small (8 stems)", "price": 32},
+      {"size": "Medium (15 stems)", "price": 48},
+      {"size": "Large (30 stems)", "price": 85}
+    ],
+    "tags": ["birthday", "friendship", "celebration"],
+    "occasion": "birthday",
+    "color": "yellow",
+    "images": {
+      "default": ["rose-003-1.jpg", "rose-003-2.jpg", "rose-003-3.jpg"],
+      "persona_man": ["rose-003-man-1.jpg", "rose-003-man-2.jpg"],
+      "persona_woman": ["rose-003-woman-1.jpg", "rose-003-woman-2.jpg"]
+    },
+    "description": "Bright yellow roses radiating joy and warmth. Perfect for birthdays, celebrating friendships, or bringing sunshine to someone's day.",
+    "featured": true
+  },
+  {
+    "id": "rose-004",
+    "name": "Passionate Pink Roses - 20",
+    "slug": "passionate-pink-roses-20",
+    "variants": [
+      {"size": "Small (10 stems)", "price": 38},
+      {"size": "Medium (20 stems)", "price": 58},
+      {"size": "Large (40 stems)", "price": 98}
+    ],
+    "tags": ["romantic", "gratitude", "admiration"],
+    "occasion": "romantic",
+    "color": "pink",
+    "images": {
+      "default": ["rose-004-1.jpg", "rose-004-2.jpg", "rose-004-3.jpg"],
+      "persona_man": ["rose-004-man-1.jpg", "rose-004-man-2.jpg"],
+      "persona_woman": ["rose-004-woman-1.jpg", "rose-004-woman-2.jpg"]
+    },
+    "description": "Soft pink roses conveying grace, gratitude, and admiration. A romantic choice for expressing appreciation and affection.",
+    "featured": false
+  },
+  {
+    "id": "rose-005",
+    "name": "Lavender Dreams - 12",
+    "slug": "lavender-dreams-12",
+    "variants": [
+      {"size": "Small (6 stems)", "price": 42},
+      {"size": "Medium (12 stems)", "price": 65},
+      {"size": "Large (24 stems)", "price": 110}
+    ],
+    "tags": ["romantic", "enchantment", "unique"],
+    "occasion": "romantic",
+    "color": "purple",
+    "images": {
+      "default": ["rose-005-1.jpg", "rose-005-2.jpg", "rose-005-3.jpg"],
+      "persona_man": ["rose-005-man-1.jpg", "rose-005-man-2.jpg"],
+      "persona_woman": ["rose-005-woman-1.jpg", "rose-005-woman-2.jpg"]
+    },
+    "description": "Enchanting lavender roses representing love at first sight and wonder. A unique and memorable choice for special occasions.",
+    "featured": false
+  },
+  {
+    "id": "rose-006",
+    "name": "Peach Serenity - 15",
+    "slug": "peach-serenity-15",
+    "variants": [
+      {"size": "Small (8 stems)", "price": 36},
+      {"size": "Medium (15 stems)", "price": 52},
+      {"size": "Large (30 stems)", "price": 88}
+    ],
+    "tags": ["gratitude", "appreciation", "sympathy"],
+    "occasion": "gratitude",
+    "color": "peach",
+    "images": {
+      "default": ["rose-006-1.jpg", "rose-006-2.jpg", "rose-006-3.jpg"],
+      "persona_man": ["rose-006-man-1.jpg", "rose-006-man-2.jpg"],
+      "persona_woman": ["rose-006-woman-1.jpg", "rose-006-woman-2.jpg"]
+    },
+    "description": "Delicate peach roses symbolizing sincerity, gratitude, and modesty. Perfect for expressing genuine appreciation.",
+    "featured": false
+  },
+  {
+    "id": "rose-007",
+    "name": "Rainbow Mixed Bouquet - 24",
+    "slug": "rainbow-mixed-bouquet-24",
+    "variants": [
+      {"size": "Small (12 stems)", "price": 45},
+      {"size": "Medium (24 stems)", "price": 68},
+      {"size": "Large (48 stems)", "price": 120}
+    ],
+    "tags": ["birthday", "celebration", "colorful"],
+    "occasion": "birthday",
+    "color": "mixed",
+    "images": {
+      "default": ["rose-007-1.jpg", "rose-007-2.jpg", "rose-007-3.jpg"],
+      "persona_man": ["rose-007-man-1.jpg", "rose-007-man-2.jpg"],
+      "persona_woman": ["rose-007-woman-1.jpg", "rose-007-woman-2.jpg"]
+    },
+    "description": "A vibrant mix of colorful roses bringing joy and celebration. Perfect for birthdays and festive occasions.",
+    "featured": true
+  },
+  {
+    "id": "rose-008",
+    "name": "Champagne Elegance - 18",
+    "slug": "champagne-elegance-18",
+    "variants": [
+      {"size": "Small (9 stems)", "price": 40},
+      {"size": "Medium (18 stems)", "price": 62},
+      {"size": "Large (36 stems)", "price": 105}
+    ],
+    "tags": ["wedding", "elegant", "sophisticated"],
+    "occasion": "wedding",
+    "color": "champagne",
+    "images": {
+      "default": ["rose-008-1.jpg", "rose-008-2.jpg", "rose-008-3.jpg"],
+      "persona_man": ["rose-008-man-1.jpg", "rose-008-man-2.jpg"],
+      "persona_woman": ["rose-008-woman-1.jpg", "rose-008-woman-2.jpg"]
+    },
+    "description": "Sophisticated champagne roses exuding elegance and charm. Ideal for weddings, formal events, or sophisticated gestures.",
+    "featured": false
+  },
+  {
+    "id": "complementary-001",
+    "name": "Premium Chocolate Box",
+    "slug": "premium-chocolate-box",
+    "variants": [
+      {"size": "Small (200g)", "price": 18},
+      {"size": "Large (500g)", "price": 35}
+    ],
+    "tags": ["complementary", "gift", "romantic"],
+    "occasion": "complementary",
+    "color": "none",
+    "images": {
+      "default": ["chocolate-001-1.jpg"],
+      "persona_man": [],
+      "persona_woman": []
+    },
+    "description": "Artisan chocolates crafted from the finest ingredients. The perfect complement to your flower bouquet.",
+    "featured": false,
+    "isComplementary": true
+  },
+  {
+    "id": "complementary-002",
+    "name": "Crystal Vase",
+    "slug": "crystal-vase",
+    "variants": [
+      {"size": "Medium", "price": 25},
+      {"size": "Large", "price": 42}
+    ],
+    "tags": ["complementary", "vase", "home"],
+    "occasion": "complementary",
+    "color": "none",
+    "images": {
+      "default": ["vase-001-1.jpg"],
+      "persona_man": [],
+      "persona_woman": []
+    },
+    "description": "Elegant crystal vase to beautifully display your roses. A timeless addition to any home.",
+    "featured": false,
+    "isComplementary": true
+  },
+  {
+    "id": "complementary-003",
+    "name": "Handwritten Greeting Card",
+    "slug": "greeting-card",
+    "variants": [
+      {"size": "Standard", "price": 5}
+    ],
+    "tags": ["complementary", "card", "message"],
+    "occasion": "complementary",
+    "color": "none",
+    "images": {
+      "default": ["card-001-1.jpg"],
+      "persona_man": [],
+      "persona_woman": []
+    },
+    "description": "Express your feelings with a beautifully crafted greeting card. We'll handwrite your personal message.",
+    "featured": false,
+    "isComplementary": true
+  },
+  {
+    "id": "complementary-004",
+    "name": "Plush Teddy Bear",
+    "slug": "plush-teddy-bear",
+    "variants": [
+      {"size": "Small (20cm)", "price": 15},
+      {"size": "Large (40cm)", "price": 28}
+    ],
+    "tags": ["complementary", "gift", "romantic"],
+    "occasion": "complementary",
+    "color": "none",
+    "images": {
+      "default": ["teddy-001-1.jpg"],
+      "persona_man": [],
+      "persona_woman": []
+    },
+    "description": "Adorable plush teddy bear holding a heart. A cuddly companion to your flower gift.",
+    "featured": false,
+    "isComplementary": true
+  },
+  {
+    "id": "complementary-005",
+    "name": "Champagne Bottle - Moët & Chandon",
+    "slug": "champagne-bottle",
+    "variants": [
+      {"size": "750ml", "price": 55}
+    ],
+    "tags": ["complementary", "celebration", "romantic"],
+    "occasion": "complementary",
+    "color": "none",
+    "images": {
+      "default": ["champagne-001-1.jpg"],
+      "persona_man": [],
+      "persona_woman": []
+    },
+    "description": "Celebrate in style with premium champagne. The perfect pairing for romantic occasions.",
+    "featured": false,
+    "isComplementary": true
+  },
+  {
+    "id": "complementary-006",
+    "name": "Scented Candle Set",
+    "slug": "scented-candle-set",
+    "variants": [
+      {"size": "3-piece set", "price": 22}
+    ],
+    "tags": ["complementary", "home", "relaxation"],
+    "occasion": "complementary",
+    "color": "none",
+    "images": {
+      "default": ["candle-001-1.jpg"],
+      "persona_man": [],
+      "persona_woman": []
+    },
+    "description": "Luxurious rose-scented candles to create a romantic ambiance. Hand-poured with natural soy wax.",
+    "featured": false,
+    "isComplementary": true
+  }
+]

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service for Petals & Blooms">
+    <title>Terms of Service - Petals & Blooms</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .legal-content h2 {
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .legal-content h3 {
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-sm);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌹</span>
+                <span>Petals & Blooms</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn">🌙</button>
+                <button id="cart-toggle" class="icon-btn">🛒<span class="badge cart-badge">0</span></button>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <section
+        style="background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-background) 100%); padding: var(--spacing-2xl) 0;">
+        <div class="container">
+            <h1 style="text-align: center;">Terms of Service</h1>
+            <p style="text-align: center; color: var(--color-text-secondary);">Last updated: November 22, 2025</p>
+        </div>
+    </section>
+
+    <section style="padding: var(--spacing-3xl) 0;">
+        <div class="container legal-content">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing and using Petals & Blooms website, you accept and agree to be bound by the terms and
+                provision of this agreement.</p>
+
+            <h2>2. Use of Service</h2>
+            <p>Our service allows you to browse and purchase fresh flower arrangements and related products. You agree
+                to use this service only for lawful purposes.</p>
+
+            <h2>3. Orders and Pricing</h2>
+            <h3>3.1 Order Acceptance</h3>
+            <p>All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order
+                for any reason.</p>
+
+            <h3>3.2 Pricing</h3>
+            <p>All prices are listed in USD and are subject to change without notice. We strive to provide accurate
+                pricing information but errors may occur.</p>
+
+            <h2>4. Product Descriptions</h2>
+            <p>We make every effort to display product colors and images as accurately as possible. However, actual
+                products may vary slightly due to natural variations in flowers.</p>
+
+            <h2>5. Delivery</h2>
+            <p>Delivery times are estimates and not guaranteed. We are not responsible for delays caused by weather,
+                recipient unavailability, or other circumstances beyond our control.</p>
+
+            <h2>6. Substitutions</h2>
+            <p>In some cases, we may need to substitute flowers of equal or greater value to ensure timely delivery. We
+                will maintain the style, color scheme, and value of your original order.</p>
+
+            <h2>7. Intellectual Property</h2>
+            <p>All content on this website, including text, graphics, logos, and images, is the property of Petals &
+                Blooms and protected by copyright laws.</p>
+
+            <h2>8. Limitation of Liability</h2>
+            <p>Petals & Blooms shall not be liable for any indirect, incidental, special, or consequential damages
+                arising from the use of our service.</p>
+
+            <h2>9. Privacy</h2>
+            <p>Your use of our service is also governed by our <a href="privacy.html">Privacy Policy</a>.</p>
+
+            <h2>10. Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. Continued use of the service after changes
+                constitutes acceptance of the new terms.</p>
+
+            <h2>11. Contact Information</h2>
+            <p>For questions about these Terms of Service, please contact us at:<br>
+                Email: hello@petalsblooms.com<br>
+                Phone: +1 (555) 123-4567</p>
+
+            <div style="margin-top: var(--spacing-3xl); text-align: center;">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Petals & Blooms. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-overlay" class="modal-overlay">
+        <aside id="cart-sidebar" class="modal" style="max-width: 450px; margin-left: auto;">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <button id="cart-close" class="modal-close">✕</button>
+            </div>
+            <div class="modal-body"></div>
+        </aside>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

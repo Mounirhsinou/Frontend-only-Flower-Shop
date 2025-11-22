@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for your order!">
+    <title>Order Confirmed - Thank You! | Petals & Blooms</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto var(--spacing-lg);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .order-details {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-2xl) 0;
+            border: 1px solid var(--color-border);
+        }
+
+        .order-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .order-detail-row:last-child {
+            border-bottom: none;
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-primary);
+            padding-top: var(--spacing-md);
+            margin-top: var(--spacing-sm);
+            border-top: 2px solid var(--color-border);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: var(--spacing-2xl);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            border: 3px solid var(--color-surface);
+            box-shadow: 0 0 0 3px var(--color-border);
+        }
+
+        .timeline-item.completed::before {
+            background: var(--color-success);
+        }
+
+        .timeline-item h4 {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-item p {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌹</span>
+                <span>Petals & Blooms</span>
+            </a>
+
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+                <button id="cart-toggle" class="icon-btn" aria-label="View shopping cart">
+                    🛒
+                    <span class="badge cart-badge">0</span>
+                </button>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Success Section -->
+    <section style="padding: var(--spacing-3xl) 0; text-align: center;">
+        <div class="container" style="max-width: 800px;">
+            <div class="success-icon">✓</div>
+            <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-md);">Thank You for Your Order!
+            </h1>
+            <p
+                style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">
+                Your order has been received and is being prepared with care.
+            </p>
+            <div
+                style="background: var(--color-accent); padding: var(--spacing-md); border-radius: var(--radius-md); display: inline-block;">
+                <p style="margin: 0; font-size: var(--font-size-sm);">Order Number</p>
+                <p id="order-number"
+                    style="font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-primary); margin: 0;">
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Summary -->
+    <section style="background: var(--color-surface); padding: var(--spacing-3xl) 0;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">Order Summary</h2>
+
+            <div id="order-items" class="order-details">
+                <!-- Order items will be loaded here -->
+            </div>
+
+            <div id="customer-details"
+                style="background: var(--color-surface); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                <!-- Customer details will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section style="padding: var(--spacing-3xl) 0;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">What Happens Next?</h2>
+
+            <div class="timeline">
+                <div class="timeline-item completed">
+                    <h4>✓ Order Received</h4>
+                    <p>We've received your order and payment</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>📋 Order Processing</h4>
+                    <p>Our florists are preparing your beautiful bouquet</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>📦 Quality Check & Packaging</h4>
+                    <p>Each stem is inspected and carefully packaged</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>🚚 On Its Way</h4>
+                    <p>Your flowers will be delivered fresh to your door</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>🌹 Delivered!</h4>
+                    <p>Enjoy your beautiful flowers</p>
+                </div>
+            </div>
+
+            <div
+                style="background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-background) 100%); padding: var(--spacing-lg); border-radius: var(--radius-lg); text-align: center;">
+                <h3 style="margin-bottom: var(--spacing-md);">📧 Confirmation Email Sent</h3>
+                <p style="color: var(--color-text-secondary); margin: 0;">
+                    We've sent a confirmation email to <span id="customer-email" style="font-weight: 600;"></span> with
+                    your order details and tracking information.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section style="background: var(--color-surface); padding: var(--spacing-3xl) 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Complete Your Gift</h2>
+                <p class="section-subtitle">Customers who bought flowers also added these special touches</p>
+            </div>
+
+            <div id="recommendations-grid" class="grid grid-3">
+                <!-- Recommendations will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: var(--spacing-3xl) 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: var(--font-size-3xl); margin-bottom: var(--spacing-lg);">Thank You for Choosing Petals
+                & Blooms!</h2>
+            <p
+                style="color: var(--color-text-secondary); font-size: var(--font-size-lg); margin-bottom: var(--spacing-xl); max-width: 600px; margin-left: auto; margin-right: auto;">
+                We appreciate your business. If you have any questions, our customer service team is here to help.
+            </p>
+            <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                <a href="shop.html" class="btn btn-primary btn-lg">Continue Shopping</a>
+                <a href="contact.html" class="btn btn-secondary btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Petals & Blooms</h3>
+                    <p style="color: var(--color-text-secondary);">Delivering joy, one bouquet at a time.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping & Delivery</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>📧 hello@petalsblooms.com</li>
+                        <li>📞 +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="payment-badges">
+                <span class="payment-badge">💳 Visa</span>
+                <span class="payment-badge">💳 Mastercard</span>
+                <span class="payment-badge">💰 PayPal</span>
+                <span class="payment-badge">💵 Stripe</span>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Petals & Blooms. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-overlay" class="modal-overlay">
+        <aside id="cart-sidebar" class="modal" role="dialog" aria-labelledby="cart-title" aria-modal="true"
+            style="max-width: 450px; margin-left: auto;">
+            <div class="modal-header">
+                <h2 id="cart-title">Shopping Cart</h2>
+                <button id="cart-close" class="modal-close" aria-label="Close cart">✕</button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart items will be loaded dynamically -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load order details from localStorage
+        const orderData = JSON.parse(localStorage.getItem('lastOrder') || '{}');
+
+        if (!orderData.orderId) {
+            // If no order data, redirect to shop
+            window.location.href = 'shop.html';
+        } else {
+            // Display order number
+            document.getElementById('order-number').textContent = orderData.orderId;
+
+            // Display customer email
+            if (orderData.customer && orderData.customer.email) {
+                document.getElementById('customer-email').textContent = orderData.customer.email;
+            }
+
+            // Display order items
+            const orderItemsContainer = document.getElementById('order-items');
+            const itemsHTML = orderData.items.map(item => `
+        <div style="display: grid; grid-template-columns: 60px 1fr auto; gap: var(--spacing-md); align-items: center; padding: var(--spacing-md) 0; border-bottom: 1px solid var(--color-border);">
+          <img src="img/${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-md);" onerror="this.src='img/placeholder.jpg'">
+          <div>
+            <h4 style="margin-bottom: 4px; font-size: var(--font-size-base);">${item.name}</h4>
+            <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin: 0;">${item.variantSize} × ${item.quantity}</p>
+          </div>
+          <div style="font-weight: 600; color: var(--color-primary);">$${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+      `).join('');
+
+            orderItemsContainer.innerHTML = `
+        ${itemsHTML}
+        <div class="order-detail-row">
+          <span>Subtotal:</span>
+          <span>$${orderData.subtotal.toFixed(2)}</span>
+        </div>
+        <div class="order-detail-row">
+          <span>Shipping:</span>
+          <span>${orderData.shipping === 0 ? 'FREE' : '$' + orderData.shipping.toFixed(2)}</span>
+        </div>
+        <div class="order-detail-row">
+          <span>Total:</span>
+          <span>$${orderData.total.toFixed(2)}</span>
+        </div>
+      `;
+
+            // Display customer details
+            if (orderData.customer) {
+                const customerDetailsContainer = document.getElementById('customer-details');
+                customerDetailsContainer.innerHTML = `
+          <h3 style="margin-bottom: var(--spacing-md);">Delivery Information</h3>
+          <div style="color: var(--color-text-secondary);">
+            <p><strong>Name:</strong> ${orderData.customer.name}</p>
+            <p><strong>Email:</strong> ${orderData.customer.email}</p>
+            <p><strong>Phone:</strong> ${orderData.customer.phone}</p>
+            <p style="margin-top: var(--spacing-md);"><strong>Delivery Address:</strong><br>
+              ${orderData.customer.address}<br>
+              ${orderData.customer.city}, ${orderData.customer.state} ${orderData.customer.zip}<br>
+              ${orderData.customer.country}
+            </p>
+            ${orderData.customer.deliveryNotes ? `<p style="margin-top: var(--spacing-md);"><strong>Delivery Notes:</strong><br>${orderData.customer.deliveryNotes}</p>` : ''}
+          </div>
+        `;
+            }
+
+            // Load recommendations
+            document.addEventListener('DOMContentLoaded', async () => {
+                await productLoader.loadProducts();
+                const recommendations = cart.getRecommendations(productLoader.products, 5);
+
+                const recommendationsGrid = document.getElementById('recommendations-grid');
+                if (recommendations.length > 0) {
+                    recommendationsGrid.innerHTML = recommendations.map(product =>
+                        productLoader.renderProductCard(product)
+                    ).join('');
+
+                    // Trigger animations
+                    setTimeout(() => {
+                        document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+                    }, 100);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
