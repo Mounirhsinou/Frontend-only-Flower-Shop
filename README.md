@@ -344,7 +344,7 @@ Update contact details in:
 - `contact.html` page
 - Legal pages (terms.html, privacy.html, shipping.html)
 
-Search for `hello@petalsblooms.com` and `+1 (555) 123-4567` to replace globally.
+Search for `hello@mounirhsinou.com` and `+1 (555) 123-4567` to replace globally.
 
 ---
 
@@ -455,7 +455,7 @@ For questions or issues:
 
 1. Check this README
 2. Review code comments in source files
-3. Contact: hello@petalsblooms.com (update with your email)
+3. Contact: hello@mounirhsinou.com
 
 ---
 
@@ -483,4 +483,7 @@ For questions or issues:
 
 ---
 
-**Built with ❤️ for flower lovers everywhere 🌹**
+**Built with ❤️ for flower lovers everywhere 🌹** 
+By Mounir hsinou
+
+
